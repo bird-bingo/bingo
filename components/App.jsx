@@ -5,20 +5,28 @@ import Menu from './Menu.jsx'
 
 export default function App() {
 
-  const [speciesList, setSpeciesList] = useState([])
-    
+  const [speciesList, setSpeciesList] = useState([]);
+
+  const addBirdsToSquares = (birdlist) => {
+    const inputField = document.querySelectorAll('.square > input')
+    console.log('inputField: ', inputField)
+
+    for (let i = 0; i < inputField.length; i++) {
+      let currSquare = inputField[i];
+      currSquare.value = birdlist[i];
+    }
+  }
+
   useEffect(() => {
-    fetch('https://api.ebird.org/v2/data/obs/US-CA-001/recent', {
-      headers: {"x-ebirdapitoken": "k35m7c131mkp"}})
+    fetch('/getBirds')
       .then(res => res.json())
       .then(res => {
-
-        const list = res.map(item => item.comName);
-        setSpeciesList(list);
+        setSpeciesList(res);
+        addBirdsToSquares(res)
         
       })
-      .catch(err => console.log('App.componentDidMount: get species data: ERROR: ', err));
-
+      .catch(err => console.log('App.componentDidMount frontend: get species data: ERROR: ', err));
+  
   }, []);
 
   console.log('species list', speciesList)
