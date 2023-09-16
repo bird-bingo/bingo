@@ -7,7 +7,7 @@ const Square = () => {
 
     return (
     <div className="square">
-      <input />
+      <p></p> 
     </div>
     )
 }

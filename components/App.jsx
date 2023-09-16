@@ -8,12 +8,12 @@ export default function App() {
   const [speciesList, setSpeciesList] = useState([]);
 
   const addBirdsToSquares = (birdlist) => {
-    const inputField = document.querySelectorAll('.square > input')
+    const inputField = document.querySelectorAll('.square > p')
     console.log('inputField: ', inputField)
 
     for (let i = 0; i < inputField.length; i++) {
       let currSquare = inputField[i];
-      currSquare.value = birdlist[i];
+      currSquare.innerHTML = birdlist[i];
     }
   }
 

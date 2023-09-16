@@ -7,25 +7,30 @@ body {
 
 .square{
     display: inline-flex;
-    align-items: center;
+    align-self: center;
+    // align-items: center;
     background-color: pink;
     height: 150px;
     width: 150px;
     max-width: 15vw;
     max-height: 15vw;
     border: 1px black solid;
-    input {
-      text-align: center;
-      width: 100%;
-    }
-}
+    margin: 1rem;
+    padding: 1rem;
+    position: relative;
 
-.row {
-    display: flex;
-    flex-direction: row;
+    p {
+      text-align: center;
+      // align-self: center;
+      // align-items: center;
+      width: 100%;
+      padding-top: 27%;;
+    }
 }
 
 .menu {
   display: flex;
   justify-content: space-between;
+  padding: 0rem 1rem 0rem 1rem;
+  margin: 0rem 1rem 0rem 1rem;
 }

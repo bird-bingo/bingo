@@ -13,8 +13,7 @@ app.get('/', (req, res) => {
   });
 
 app.get('/getBirds', birdController.getBirds, (req, res, next) => {
-  console.log('server 16', res.locals.birdList)
-    return res.status(200).json(res.locals.birdList);
+  return res.status(200).json(res.locals.birdList);
 });
 
 app.listen(PORT, () => console.log('listening on 3000')); //listens on port 3000 -> http:/localhost:3000/

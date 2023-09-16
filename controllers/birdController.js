@@ -7,9 +7,7 @@ birdController.getBirds = async (req, res, next) => {
       .then(data => {
 
         const birdList = data.map(item => item.comName);
-        console.log('birdController', birdList)
         res.locals.birdList = birdList.sort(() => 0.5 - Math.random()).slice(0, 25);
-        // leave middleware 
         return next();
       })
       .catch(err => console.log('App.componentDidMount: get species data: ERROR: ', err));
