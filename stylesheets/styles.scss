@@ -7,8 +7,6 @@ body {
 
 .square{
     display: inline-flex;
-    align-self: center;
-    // align-items: center;
     background-color: pink;
     height: 150px;
     width: 150px;
@@ -17,12 +15,13 @@ body {
     border: 1px black solid;
     margin: 1rem;
     padding: 1rem;
-    position: relative;
+
+    // &:hover {
+    //   background-color: gold;
+    // }
 
     p {
       text-align: center;
-      // align-self: center;
-      // align-items: center;
       width: 100%;
       padding-top: 27%;;
     }

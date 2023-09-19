@@ -17,12 +17,23 @@ export default function App() {
     }
   }
 
+  const addHoverToSquares = () => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+    .square:hover {
+      background-color: gold;
+    }
+    `;
+    document.head.appendChild(style);
+  }
+
   useEffect(() => {
     fetch('/getBirds')
       .then(res => res.json())
       .then(res => {
         setSpeciesList(res);
         addBirdsToSquares(res)
+        addHoverToSquares();
         
       })
       .catch(err => console.log('App.componentDidMount frontend: get species data: ERROR: ', err));
