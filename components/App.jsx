@@ -6,10 +6,10 @@ import Menu from './Menu.jsx'
 export default function App() {
 
   const [speciesList, setSpeciesList] = useState([]);
+  const [boardState, setBoardState] = useState(Array(5).fill(0).map((v) => [v, v, v, v, v]));
 
   const addBirdsToSquares = (birdlist) => {
     const inputField = document.querySelectorAll('.square > p')
-    console.log('inputField: ', inputField)
 
     for (let i = 0; i < inputField.length; i++) {
       let currSquare = inputField[i];
@@ -40,11 +40,23 @@ export default function App() {
   
   }, []);
 
-  console.log('species list', speciesList)
+  // useEffect(() => {
+
+  // }, [boardState])
+
+  // const addStylesToSquares = () => {
+  //   const inputField = document.querySelectorAll('.square')
+
+  //   for (let i = 0; i < inputField.length; i++) {
+  //     let currSquare = inputField[i];
+  //     currSquare.innerHTML = birdlist[i];
+  //   }
+  // }
+  
 
 return (
-    <> 
-    <Board />
+    <>
+    <Board boardState={boardState} setBoardState={setBoardState}/>
     <Menu />
     </>
   )

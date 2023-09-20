@@ -2,10 +2,11 @@ import React from 'react';
 import Square from './Square.jsx';
 import Row from './Row.jsx';
 
-const Board = () => {
+const Board = ({boardState, setBoardState}) => {
+
   const board = []
   for (let row = 0; row < 5; row++) {
-    board.push(<Row className="row" row={row}/>)
+    board.push(<Row className="row" row={row} boardState={boardState} setBoardState= {setBoardState}/>)
   }
 
     return (
