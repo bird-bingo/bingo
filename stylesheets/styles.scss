@@ -28,7 +28,23 @@ body {
 }
 
 .clicked {
-  font-size: 16pt;
+  background: 
+  // repeating-linear-gradient(
+  //   to right, transparent, 
+  //   transparent 50px, 
+  //   white 50px, 
+  //   white 55px
+  // ),
+  // repeating-linear-gradient(
+  //   to bottom, transparent,  
+  //   transparent 50px, 
+  //   white 50px, 
+  //   white 55px
+  // ),
+  linear-gradient(45deg, pink, skyblue);
+  &:hover {
+    background-color: linear-gradient(75deg, pink, skyblue);;
+  }
 }
 
 

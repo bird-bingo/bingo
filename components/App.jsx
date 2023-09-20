@@ -38,21 +38,7 @@ export default function App() {
       })
       .catch(err => console.log('App.componentDidMount frontend: get species data: ERROR: ', err));
   
-  }, []);
-
-  // useEffect(() => {
-
-  // }, [boardState])
-
-  // const addStylesToSquares = () => {
-  //   const inputField = document.querySelectorAll('.square')
-
-  //   for (let i = 0; i < inputField.length; i++) {
-  //     let currSquare = inputField[i];
-  //     currSquare.innerHTML = birdlist[i];
-  //   }
-  // }
-  
+  }, []);  
 
 return (
     <>

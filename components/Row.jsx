@@ -1,20 +1,16 @@
 import React from 'react';
 import Square from './Square.jsx'
 
-const Row = (props) => {
+const Row = ({row, boardState, setBoardState}) => {
 
-  const rowId = props.row;
-  const boardState = props.boardState;
-  const setBoardState = props.setBoardState;
-
-    const row = [];
+    const currRow = [];
     for (let i = 0; i < 5; i++) {
-        row.push(<Square rowId={rowId} col={i} boardState={boardState} setBoardState={setBoardState}/>)
+        currRow.push(<Square row={row} col={i} boardState={boardState} setBoardState={setBoardState}/>)
     }
 
     return (
     <div>
-      {row}
+      {currRow}
     </div>
     )
 }
