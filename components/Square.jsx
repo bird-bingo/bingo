@@ -14,12 +14,25 @@ const Square = ({row, col, boardState, setBoardState}) => {
     checkForWinner();
   }
 
+  const displayWinnerOnRow = (indexOfRow) => {
+
+    const inputField = document.querySelectorAll('.square > p')
+
+    let start = indexOfRow * 5;
+
+    for (let i = start; i < start+5; i++) {
+      let currSquare = inputField[i];
+      currSquare.style.border = '10px solid black';
+    }
+  }
+
   const checkForWinner = () => {
     // check for winnder horizontally
 
     for (let row = 0; row < 5; row++) {
       if (boardState[row].every(cell => cell === 1)){
         console.log('winner')
+        displayWinnerOnRow(row);
         return 
       }
     }
