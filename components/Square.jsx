@@ -14,24 +14,59 @@ const Square = ({row, col, boardState, setBoardState}) => {
     checkForWinner();
   }
 
-  const displayWinnerOnRow = (indexOfRow) => {
+  // const displayWinnerOnRow = (indexOfRow) => {
 
-    const inputField = document.querySelectorAll('.square > p')
+  //   const inputField = document.querySelectorAll('.square > p')
 
-    let start = indexOfRow * 5;
+  //   let start = indexOfRow * 5;
 
-    for (let i = start; i < start+5; i++) {
-      let currSquare = inputField[i];
+  //   for (let i = start; i < start+5; i++) {
+  //     let currSquare = inputField[i];
+  //     currSquare.style.border = '10px solid black';
+  //   }
+  // }
+
+  console.log(boardState)
+  const displayWinner = (axis, number) => {
+
+    const allCells = document.querySelectorAll('.square > p')
+
+    for (cell of cells) {
+      let currSquare = allCells[i];
       currSquare.style.border = '10px solid black';
     }
   }
 
+
+  // const displayWinnerOnColumn = (indexOfRow) => {
+
+  //   const inputField = document.querySelectorAll('.square > p')
+
+  //   let start = indexOfRow * 5;
+
+  //   for (let i = start; i < start+5; i++) {
+  //     let currSquare = inputField[i];
+  //     currSquare.style.border = '10px solid black';
+  //   }
+  // }
+
+  // const displayWinnerOnRow = (indexOfRow) => {
+
+  //   const inputField = document.querySelectorAll('.square > p')
+
+  //   let start = indexOfRow * 5;
+
+  //   for (let i = start; i < start+5; i++) {
+  //     let currSquare = inputField[i];
+  //     currSquare.style.border = '10px solid black';
+  //   }
+  // }
+
   const checkForWinner = () => {
-    // check for winnder horizontally
+    // check for winner horizontally
 
     for (let row = 0; row < 5; row++) {
       if (boardState[row].every(cell => cell === 1)){
-        console.log('winner')
         displayWinnerOnRow(row);
         return 
       }
@@ -40,6 +75,7 @@ const Square = ({row, col, boardState, setBoardState}) => {
     for (let col = 0; col < 5; col++) {
       if (boardState.every(row => row[col] === 1)) {
         console.log('winner')
+        displayWinnerOnRow(row);
         return 
       }
     }
