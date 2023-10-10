@@ -14,79 +14,69 @@ const Square = ({row, col, boardState, setBoardState}) => {
     checkForWinner();
   }
 
-  // const displayWinnerOnRow = (indexOfRow) => {
 
-  //   const inputField = document.querySelectorAll('.square > p')
-
-  //   let start = indexOfRow * 5;
-
-  //   for (let i = start; i < start+5; i++) {
-  //     let currSquare = inputField[i];
-  //     currSquare.style.border = '10px solid black';
-  //   }
-  // }
-
-  console.log(boardState)
   const displayWinner = (axis, number) => {
 
     const allCells = document.querySelectorAll('.square > p')
 
-    for (cell of cells) {
-      let currSquare = allCells[i];
-      currSquare.style.border = '10px solid black';
+    // horizontal bingo
+    if (axis === "horizontal") {
+      number = number * 5
+      for (let i = 0; i < 5; i++) {
+        let currSquare = allCells[i + number];
+        currSquare.style.border = '10px solid black';
+      }
+    }
+
+    // vertical bingo
+    else if (axis === "vertical") {
+      for (let i = 0; i < 5; i++) {
+        let currSquare = allCells[i * 5 + number];
+        currSquare.style.border = '10px solid black';
+      }
+    }
+
+    // diagonal bingo
+    else if (axis === "diagonal" && number === 0) {
+      for (let i = 0; i < 5; i++) {
+        let currSquare = allCells[i * 5 + i];
+        currSquare.style.border = '10px solid black';
+      }
+    } else {
+      for (let i = 4; i <= 20; i += 4) {
+        console.log('formatting cell: ', i)
+        let currSquare = allCells[i];
+        currSquare.style.border = '10px solid black';
+      }
     }
   }
 
 
-  // const displayWinnerOnColumn = (indexOfRow) => {
-
-  //   const inputField = document.querySelectorAll('.square > p')
-
-  //   let start = indexOfRow * 5;
-
-  //   for (let i = start; i < start+5; i++) {
-  //     let currSquare = inputField[i];
-  //     currSquare.style.border = '10px solid black';
-  //   }
-  // }
-
-  // const displayWinnerOnRow = (indexOfRow) => {
-
-  //   const inputField = document.querySelectorAll('.square > p')
-
-  //   let start = indexOfRow * 5;
-
-  //   for (let i = start; i < start+5; i++) {
-  //     let currSquare = inputField[i];
-  //     currSquare.style.border = '10px solid black';
-  //   }
-  // }
-
   const checkForWinner = () => {
+    console.log('check for winner')
     // check for winner horizontally
-
     for (let row = 0; row < 5; row++) {
       if (boardState[row].every(cell => cell === 1)){
-        displayWinnerOnRow(row);
-        return 
+        displayWinner("horizontal", row);
+        return
       }
     }
+
     // check for winner vertically 
     for (let col = 0; col < 5; col++) {
       if (boardState.every(row => row[col] === 1)) {
-        console.log('winner')
-        displayWinnerOnRow(row);
-        return 
+        displayWinner("vertical", col);
+        return
       }
     }
+    
     // check for winner diagonally 
     if (boardState.every((row, col) => row[col] === 1)) {
-      console.log('winner')
+      displayWinner("diagonal", 0);
       return 
     }
-
     if (boardState.every((row, col) => row[4 - col] === 1)) {
-      console.log('winner')
+      displayWinner("diagonal", 1);
       return 
     }
   }
