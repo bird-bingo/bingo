@@ -43,7 +43,7 @@ export default function App() {
 return (
     <>
     <Board boardState={boardState} setBoardState={setBoardState}/>
-    <Menu />
+    <Menu boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
     </>
   )
 }
