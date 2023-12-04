@@ -49,6 +49,11 @@ const Square = ({row, col, boardState, setBoardState}) => {
         currSquare.style.border = '10px solid black';
       }
     }
+    const confettiWrapper = document.querySelector('.wrapper')
+    console.log(confettiWrapper)
+    if (confettiWrapper) {
+      if (confettiWrapper.style) confettiWrapper.style.visibility = "visible";
+    }
   }
 
 

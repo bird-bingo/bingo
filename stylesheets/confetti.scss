@@ -4,13 +4,15 @@
 
 // working on confetti
 .wrapper {
-  position: absolute;
-  height: 100vh;
+  visibility: hidden;
+  position: fixed;
+  height: 100%;
   width: 100%;
   top: 0;
-  overflow-x: hidden;
-  // overflow: hidden;
+  overflow: hidden;
 }
+
+
 
 [class|="confetti"] {
   position: absolute;
