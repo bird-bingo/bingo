@@ -6,7 +6,7 @@ const Board = ({boardState, setBoardState}) => {
 
   const board = []
   for (let row = 0; row < 5; row++) {
-    board.push(<Row className="row" row={row} boardState={boardState} setBoardState={setBoardState}/>)
+    board.push(<Row className="row" key={'row' + row} row={row} boardState={boardState} setBoardState={setBoardState}/>)
   }
 
     return (

@@ -1,7 +1,15 @@
 const birdController = {};
 
 birdController.getBirds = async (req, res, next) => {
-    fetch('https://api.ebird.org/v2/data/obs/US-CA-001/recent', {
+
+  let stateCode = req.query.location;
+  
+  let url = `https://api.ebird.org/v2/data/obs/${stateCode}/recent`;
+
+  // if no location given use default url
+  if (stateCode === '') url = 'https://api.ebird.org/v2/data/obs/US/recent';
+
+    fetch(url, {
       headers: {"x-ebirdapitoken": "k35m7c131mkp"}})
       .then(res => res.json())
       .then(data => {

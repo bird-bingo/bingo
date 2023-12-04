@@ -82,7 +82,7 @@ const Square = ({row, col, boardState, setBoardState}) => {
   }
 
     return (
-    <div className={boardState[row][col] ? "square clicked" : "square"} onClick={() => onClickHelper(row, col)}>
+    <div key={"key" + row + col} className={boardState[row][col] ? "square clicked" : "square"} onClick={() => onClickHelper(row, col)}>
       <p></p> 
     </div>
     )

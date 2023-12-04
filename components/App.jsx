@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Board from './Board.jsx';
-import Menu from './Menu.jsx'
+import Menu from './Menu.jsx';
+import Sidebar from './Sidebar.jsx';
 
 
 export default function App() {
 
   const [speciesList, setSpeciesList] = useState([]);
   const [boardState, setBoardState] = useState(Array(5).fill(0).map((v) => [v, v, v, v, v]));
+
+  const [location, setLocation] = useState('');
 
   const addBirdsToSquares = (birdlist) => {
     const inputField = document.querySelectorAll('.square > p')
@@ -28,7 +31,8 @@ export default function App() {
   }
 
   useEffect(() => {
-    fetch('/getBirds')
+
+    fetch(`/getBirds?location=${location}`)
       .then(res => res.json())
       .then(res => {
         setSpeciesList(res);
@@ -38,12 +42,16 @@ export default function App() {
       })
       .catch(err => console.log('App.componentDidMount frontend: get species data: ERROR: ', err));
   
-  }, []);  
+  }, [location]);
 
 return (
-    <>
-    <Board boardState={boardState} setBoardState={setBoardState}/>
-    <Menu boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
-    </>
+    <div id="container">
+      <Sidebar location={location} setLocation={setLocation}/>
+      <div>
+        <Board boardState={boardState} setBoardState={setBoardState}/>
+        <Menu boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
+      </div>
+      
+    </div>
   )
 }

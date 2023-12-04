@@ -36,7 +36,7 @@ const Menu = ({boardState, setBoardState, setSpeciesList, addBirdsToSquares}) =>
     }
 
     return (
-       <div className='menu'>
+    <div className='menu'>
     <button onClick={resetBoard}>Reset board</button>
     <button onClick={newGame}>New game</button>
     <h2>button 3</h2>
