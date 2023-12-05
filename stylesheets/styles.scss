@@ -3,11 +3,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #B8D5B8;
 }
 
 .square{
     display: inline-flex;
-    background-color: pink;
+    background-color: #D7B49E;
     height: 150px;
     width: 150px;
     max-width: 15vw;
@@ -51,14 +52,123 @@ body {
 .menu {
   display: flex;
   justify-content: space-between;
-  padding: 0rem 1rem 0rem 1rem;
-  margin: 0rem 1rem 0rem 1rem;
+  // padding: 0rem 1rem 0rem 1rem;
+  // margin: 0rem 1rem 0rem 1rem;
 }
 
 #container {
   display: flex;
 }
 
+#range-button {
+  display: block;
+}
 #go-button {
   display: block;
 }
+
+.sidebar-box {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+// .range-select {
+//   // position: absolute;
+//   width: 100%;
+//   height: 50%;
+//   display: flex; 
+//   justify-content: center;
+//   overflow: hidden;
+// }
+
+// .top-half::before, .bottom-half::before {
+//   position: absolute;
+//   width: 100%;
+//   // height: 50%;
+//   top: 0;
+//   border-radius: 50%;
+
+// }
+
+// .top-half {
+//   align-items: center;
+//   background-color: blue;
+// }
+// .range-select .bottom-half::before {
+//   align-items: top;
+// }
+
+// #range-circle {
+//   position: relative;
+//   border: 1px solid black;
+//   height: 20rem;
+//   width: 90%;
+//   border-radius: 50%;
+//   overflow: hidden;
+// }
+
+// #range-by-state-select {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+#range-circle {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 22rem;
+  width: 12rem;
+  overflow: hidden;
+}
+
+#range-circle h4 {
+  margin: 0; 
+}
+
+#range-by-state {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  background-color: #bc412b;
+  opacity: 1;
+}
+
+#range-by-state-select {
+  align-self: center;
+  text-align: center;
+}
+
+#range-by-state-select select {
+  width: 4rem;
+}
+
+#range-all-birds {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  justify-content: center;
+  background-color: #bc412b;
+  opacity: .3;
+  // overflow: hidden;
+  // box-sizing: border-box;
+  border: 2px solid yellow;
+  border-bottom-left-radius: 90%;
+  border-bottom-right-radius: 90%;
+}
+
+#range-all-birds:hover {
+  cursor: pointer;
+}
+
+#range-circle:hover {
+  cursor: pointer;
+}
+
+#range-all-birds h4 {
+  width: 4rem;
+  text-align: center;
+  align-self: center;
+}
+

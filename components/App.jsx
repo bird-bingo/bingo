@@ -24,7 +24,7 @@ export default function App() {
     const style = document.createElement('style');
     style.innerHTML = `
     .square:hover {
-      background-color: gold;
+      background-color: #DC602E;
     }
     `;
     document.head.appendChild(style);
@@ -46,10 +46,9 @@ export default function App() {
 
 return (
     <div id="container">
-      <Sidebar location={location} setLocation={setLocation}/>
+      <Sidebar location={location} setLocation={setLocation} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
       <div>
         <Board boardState={boardState} setBoardState={setBoardState}/>
-        <Menu boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
       </div>
       
     </div>

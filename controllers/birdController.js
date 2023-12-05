@@ -6,6 +6,8 @@ birdController.getBirds = async (req, res, next) => {
   
   let url = `https://api.ebird.org/v2/data/obs/${stateCode}/recent`;
 
+  console.log('stateCode', stateCode)
+
   // if no location given use default url
   if (stateCode === '') url = 'https://api.ebird.org/v2/data/obs/US/recent';
 
