@@ -48,14 +48,6 @@ body {
   }
 }
 
-
-.menu {
-  display: flex;
-  justify-content: space-between;
-  // padding: 0rem 1rem 0rem 1rem;
-  // margin: 0rem 1rem 0rem 1rem;
-}
-
 #container {
   display: flex;
 }
@@ -71,54 +63,10 @@ body {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem;
-}
-
-// .range-select {
-//   // position: absolute;
-//   width: 100%;
-//   height: 50%;
-//   display: flex; 
-//   justify-content: center;
-//   overflow: hidden;
-// }
-
-// .top-half::before, .bottom-half::before {
-//   position: absolute;
-//   width: 100%;
-//   // height: 50%;
-//   top: 0;
-//   border-radius: 50%;
-
-// }
-
-// .top-half {
-//   align-items: center;
-//   background-color: blue;
-// }
-// .range-select .bottom-half::before {
-//   align-items: top;
-// }
-
-// #range-circle {
-//   position: relative;
-//   border: 1px solid black;
-//   height: 20rem;
-//   width: 90%;
-//   border-radius: 50%;
-//   overflow: hidden;
-// }
-
-// #range-by-state-select {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-#range-circle {
-  border: 1px solid black;
-  border-radius: 50%;
-  height: 22rem;
-  width: 12rem;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 12rem;
+  align-items: center;
 }
 
 #range-circle h4 {
@@ -126,10 +74,14 @@ body {
 }
 
 #range-by-state {
-  height: 50%;
-  width: 100%;
+  height: 150px;
+  width: 150px;
+  // border-left: 2px solid black;
+  // border-right: 2px solid black;
+  // border-top: 2px solid black;
+  border: 2px solid black;
+  border-radius: 50% / 100% 100% 0 0;;
   display: flex;
-  // align-items: center;
   justify-content: center;
   background-color: #bc412b;
   opacity: 1;
@@ -146,23 +98,20 @@ body {
 
 #range-all-birds {
   display: flex;
-  height: 50%;
-  width: 100%;
-  justify-content: center;
+  height: 150px;
+  width: 150px;
+  border: 2px black solid;
+  border-radius: 50% / 0 0 100% 100%;
   background-color: #bc412b;
+  justify-content: center;
   opacity: .3;
-  // overflow: hidden;
-  // box-sizing: border-box;
-  border: 2px solid yellow;
-  border-bottom-left-radius: 90%;
-  border-bottom-right-radius: 90%;
 }
 
 #range-all-birds:hover {
   cursor: pointer;
 }
 
-#range-circle:hover {
+#range-by-state:hover {
   cursor: pointer;
 }
 
@@ -172,3 +121,6 @@ body {
   align-self: center;
 }
 
+.sidebar-box .menu button {
+  margin: 0 1rem 0 1rem;
+}
