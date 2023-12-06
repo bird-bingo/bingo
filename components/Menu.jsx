@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-const Menu = ({boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
+const Menu = ({location, boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
 
     const resetBoard = () => {
 
@@ -25,7 +25,7 @@ const Menu = ({boardState, setBoardState, setSpeciesList, addBirdsToSquares}) =>
 
         resetBoard();
 
-        fetch('/getBirds')
+        fetch(`/getBirds?location=${location}`)
             .then(res => res.json())
             .then(res => {
                 setSpeciesList(res);
@@ -39,7 +39,6 @@ const Menu = ({boardState, setBoardState, setSpeciesList, addBirdsToSquares}) =>
     <div className='menu'>
     <button onClick={resetBoard}>Reset board</button>
     <button onClick={newGame}>New game</button>
-    <h2>button 3</h2>
     </div>
     )
 }

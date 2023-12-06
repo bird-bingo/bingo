@@ -3,11 +3,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #B8D5B8;
 }
 
 .square{
     display: inline-flex;
-    background-color: pink;
+    background-color: #D7B49E;
     height: 150px;
     width: 150px;
     max-width: 15vw;
@@ -47,18 +48,79 @@ body {
   }
 }
 
-
-.menu {
-  display: flex;
-  justify-content: space-between;
-  padding: 0rem 1rem 0rem 1rem;
-  margin: 0rem 1rem 0rem 1rem;
-}
-
 #container {
   display: flex;
 }
 
+#range-button {
+  display: block;
+}
 #go-button {
   display: block;
+}
+
+.sidebar-box {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 12rem;
+  align-items: center;
+}
+
+#range-circle h4 {
+  margin: 0; 
+}
+
+#range-by-state {
+  height: 150px;
+  width: 150px;
+  // border-left: 2px solid black;
+  // border-right: 2px solid black;
+  // border-top: 2px solid black;
+  border: 2px solid black;
+  border-radius: 50% / 100% 100% 0 0;;
+  display: flex;
+  justify-content: center;
+  background-color: #bc412b;
+  opacity: 1;
+}
+
+#range-by-state-select {
+  align-self: center;
+  text-align: center;
+}
+
+#range-by-state-select select {
+  width: 4rem;
+}
+
+#range-all-birds {
+  display: flex;
+  height: 150px;
+  width: 150px;
+  border: 2px black solid;
+  border-radius: 50% / 0 0 100% 100%;
+  background-color: #bc412b;
+  justify-content: center;
+  opacity: .3;
+}
+
+#range-all-birds:hover {
+  cursor: pointer;
+}
+
+#range-by-state:hover {
+  cursor: pointer;
+}
+
+#range-all-birds h4 {
+  width: 4rem;
+  text-align: center;
+  align-self: center;
+}
+
+.sidebar-box .menu button {
+  margin: 0 1rem 0 1rem;
 }

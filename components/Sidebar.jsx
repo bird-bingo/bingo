@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Menu from './Menu.jsx';
 
 const states = {
     Alabama: 'US-AL',
@@ -55,7 +55,8 @@ const states = {
     Wyoming: 'US-WY',
   };
 
-const Sidebar = ({location, setLocation}) => {
+
+const Sidebar = ({location, setLocation, boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
 
 
     const handleLocationChange = () => {
@@ -71,16 +72,42 @@ const Sidebar = ({location, setLocation}) => {
 
     return (
         <div>
-            <h2>This is my sidebar</h2>
-            <label htmlFor="location">Location: </label>
-            <select
-                id="location"
-                >
-                    <option defaultValue="" hidden>Select your state</option>
-                    {arrayOfStates}
-                    
-            </select>
-            <button id="go-button" onClick={handleLocationChange}>Go!</button>
+            <h2>Game Play</h2>
+
+            <div class="sidebar-box">
+                <h3>Range</h3>
+
+                <div id="range-circle">
+
+                    <div id="range-by-state" class="range-select top-half">
+                        <div id="range-by-state-select">
+                            <h4>Select your state</h4>
+                            <select
+                                id="location"
+                                >
+                                    <option defaultValue="" hidden>State</option>
+                                    {arrayOfStates}
+                                    
+                            </select>
+
+                        </div>
+                        
+                    </div>
+
+                    <div id="range-all-birds" class="range-select bottom-half">
+                        <h4>Play all North American birds</h4>
+                    </div>
+
+                </div>
+              
+                <button id="go-button" onClick={handleLocationChange}>Go!</button>
+            </div>
+
+            <div class="sidebar-box">
+                <h3>Set the board</h3>
+                <Menu location={location} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
+            </div>
+            
         </div>
     
     )
