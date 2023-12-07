@@ -9,7 +9,7 @@ const Row = ({row, boardState, setBoardState}) => {
     }
 
     return (
-    <div>
+    <div class="row">
       {currRow}
     </div>
     )

@@ -6,25 +6,26 @@ body {
   background-color: #B8D5B8;
 }
 
+.row {
+  display: flex;
+  flex: 0 0 20%;
+}
+
 .square{
     display: inline-flex;
     background-color: #D7B49E;
-    height: 150px;
-    width: 150px;
-    max-width: 15vw;
-    max-height: 15vw;
+    min-height: 75px;
+    min-width: 75px;
+    // max-width: 75px;
+    // max-width: 15vw;
+    // max-height: 15vw;
     border: 1px black solid;
     margin: 1rem;
     padding: 1rem;
 
-    // &:hover {
-    //   background-color: gold;
-    // }
 
     p {
-      text-align: center;
-      width: 100%;
-      padding-top: 27%;;
+      text-align: center; 
     }
 }
 
@@ -57,6 +58,7 @@ body {
 }
 #go-button {
   display: block;
+  margin-top: 16px;
 }
 
 .sidebar-box {
@@ -82,9 +84,9 @@ body {
   border: 2px solid black;
   border-radius: 50% / 100% 100% 0 0;;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
   background-color: #bc412b;
-  opacity: 1;
 }
 
 #range-by-state-select {
@@ -93,18 +95,20 @@ body {
 }
 
 #range-by-state-select select {
+  margin-bottom: 2rem;
+  margin-top: .25rem;
   width: 4rem;
 }
 
 #range-all-birds {
   display: flex;
+  flex-direction: column;
   height: 150px;
   width: 150px;
   border: 2px black solid;
   border-radius: 50% / 0 0 100% 100%;
   background-color: #bc412b;
-  justify-content: center;
-  opacity: .3;
+  justify-content: flex-start;
 }
 
 #range-all-birds:hover {
@@ -119,8 +123,17 @@ body {
   width: 4rem;
   text-align: center;
   align-self: center;
+  margin-top: 2rem;
 }
 
 .sidebar-box .menu button {
   margin: 0 1rem 0 1rem;
+}
+
+.selected {
+  opacity: 1;
+}
+
+.not-selected {
+  opacity: .3;
 }

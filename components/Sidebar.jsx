@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect }from 'react';
 import Menu from './Menu.jsx';
 
 const states = {
@@ -60,8 +60,8 @@ const Sidebar = ({location, setLocation, boardState, setBoardState, setSpeciesLi
 
 
     const handleLocationChange = () => {
-        
-        setLocation(document.getElementById("location").value)
+        if (range === 'range-by-state') setLocation(document.getElementById("location").value)
+        else setLocation('')
     }
 
     const arrayOfStates = [];
@@ -69,6 +69,14 @@ const Sidebar = ({location, setLocation, boardState, setBoardState, setSpeciesLi
     for (const state in states) {
         arrayOfStates.push(<option key={state} value={states[state]}>{state}</option>)
     }
+
+    // const handleRangeChange = () => {
+    //     console.log(this)
+    // }
+
+    const [range, setRange] = useState('range-by-state');
+    
+
 
     return (
         <div>
@@ -79,22 +87,21 @@ const Sidebar = ({location, setLocation, boardState, setBoardState, setSpeciesLi
 
                 <div id="range-circle">
 
-                    <div id="range-by-state" class="range-select top-half">
+                    <div onClick={(event) => {setRange(event.currentTarget.id); console.log(event)}} id="range-by-state" class={range === 'range-by-state' ? 'selected' : 'not-selected'}>
                         <div id="range-by-state-select">
                             <h4>Select your state</h4>
                             <select
                                 id="location"
-                                >
+                                disabled={range === 'range-by-state' ? false : true}                                >
                                     <option defaultValue="" hidden>State</option>
                                     {arrayOfStates}
                                     
                             </select>
 
                         </div>
-                        
                     </div>
 
-                    <div id="range-all-birds" class="range-select bottom-half">
+                    <div onClick={(event) => {setRange(event.currentTarget.id)}} id="range-all-birds" class={range === 'range-all-birds' ? 'selected' : 'not-selected'}>
                         <h4>Play all North American birds</h4>
                     </div>
 
