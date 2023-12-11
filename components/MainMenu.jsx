@@ -56,12 +56,14 @@ const states = {
   };
 
 
-const Sidebar = ({location, setLocation, boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
+const MainMenu = ({setSetUp, location, setLocation, boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
 
 
     const handleLocationChange = () => {
         if (range === 'range-by-state') setLocation(document.getElementById("location").value)
         else setLocation('')
+
+        setSetUp(false);
     }
 
     const arrayOfStates = [];
@@ -82,12 +84,12 @@ const Sidebar = ({location, setLocation, boardState, setBoardState, setSpeciesLi
         <div>
             <h2>Game Play</h2>
 
-            <div class="sidebar-box">
+            <div className="menu-box">
                 <h3>Range</h3>
 
                 <div id="range-circle">
 
-                    <div onClick={(event) => {setRange(event.currentTarget.id); console.log(event)}} id="range-by-state" class={range === 'range-by-state' ? 'selected' : 'not-selected'}>
+                    <div onClick={(event) => {setRange(event.currentTarget.id); console.log(event)}} id="range-by-state" className={range === 'range-by-state' ? 'selected' : 'not-selected'}>
                         <div id="range-by-state-select">
                             <h4>Select your state</h4>
                             <select
@@ -101,7 +103,7 @@ const Sidebar = ({location, setLocation, boardState, setBoardState, setSpeciesLi
                         </div>
                     </div>
 
-                    <div onClick={(event) => {setRange(event.currentTarget.id)}} id="range-all-birds" class={range === 'range-all-birds' ? 'selected' : 'not-selected'}>
+                    <div onClick={(event) => {setRange(event.currentTarget.id)}} id="range-all-birds" className={range === 'range-all-birds' ? 'selected' : 'not-selected'}>
                         <h4>Play all North American birds</h4>
                     </div>
 
@@ -109,15 +111,10 @@ const Sidebar = ({location, setLocation, boardState, setBoardState, setSpeciesLi
               
                 <button id="go-button" onClick={handleLocationChange}>Go!</button>
             </div>
-
-            <div class="sidebar-box">
-                <h3>Set the board</h3>
-                <Menu location={location} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
-            </div>
             
         </div>
     
     )
 }
 
-export default Sidebar;
+export default MainMenu;

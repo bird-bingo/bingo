@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Board from './Board.jsx';
 import Menu from './Menu.jsx';
-import Sidebar from './Sidebar.jsx';
+import MainMenu from './MainMenu.jsx';
 
 
 export default function App() {
@@ -10,6 +10,8 @@ export default function App() {
   const [boardState, setBoardState] = useState(Array(5).fill(0).map((v) => [v, v, v, v, v]));
 
   const [location, setLocation] = useState('');
+
+  const [setUp, setSetUp] = useState(true);
 
   const addBirdsToSquares = (birdlist) => {
     const inputField = document.querySelectorAll('.square > p')
@@ -46,11 +48,14 @@ export default function App() {
 
 return (
     <div id="container">
-      <Sidebar location={location} setLocation={setLocation} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
-      <div>
-        <Board boardState={boardState} setBoardState={setBoardState}/>
-      </div>
-      
+      {setUp ? 
+        <MainMenu setSetUp={setSetUp} location={location} setLocation={setLocation} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
+        : 
+        <div>
+          <div className="board"><Board boardState={boardState} setBoardState={setBoardState}/></div>
+          <Menu setSetUp={setSetUp} location={location} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
+        </div>
+      }      
     </div>
   )
 }

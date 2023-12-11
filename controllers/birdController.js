@@ -16,7 +16,9 @@ birdController.getBirds = async (req, res, next) => {
       .then(res => res.json())
       .then(data => {
 
-        const birdList = data.map(item => item.comName);
+        let birdList = data.map(item => item.comName);
+        birdList = birdList.filter(item => item.length <= 20);
+        console.log(birdList)
         res.locals.birdList = birdList.sort(() => 0.5 - Math.random()).slice(0, 25);
         return next();
       })

@@ -14,19 +14,26 @@ body {
 .square{
     display: inline-flex;
     background-color: #D7B49E;
-    min-height: 75px;
-    min-width: 75px;
+    height: 70px;
+    width: 70px;
     // max-width: 75px;
     // max-width: 15vw;
     // max-height: 15vw;
     border: 1px black solid;
-    margin: 1rem;
-    padding: 1rem;
-
+    // margin: 1rem;
+    // padding: 1rem;
 
     p {
-      text-align: center; 
+      text-align: center;
+      margin: auto;
+      font-size: 10pt;
     }
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .clicked {
@@ -61,7 +68,7 @@ body {
   margin-top: 16px;
 }
 
-.sidebar-box {
+.menu-box {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem;
@@ -126,7 +133,7 @@ body {
   margin-top: 2rem;
 }
 
-.sidebar-box .menu button {
+.menu-box .menu button {
   margin: 0 1rem 0 1rem;
 }
 

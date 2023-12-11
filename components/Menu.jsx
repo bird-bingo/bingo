@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-const Menu = ({location, boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
+const Menu = ({setSetUp, location, boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
 
     const resetBoard = () => {
 
@@ -36,10 +36,14 @@ const Menu = ({location, boardState, setBoardState, setSpeciesList, addBirdsToSq
     }
 
     return (
-    <div className='menu'>
-    <button onClick={resetBoard}>Reset board</button>
-    <button onClick={newGame}>New game</button>
-    </div>
+        <div className="menu-box">
+            <h3>Set the board</h3>
+            <div className='menu'>
+                <button onClick={resetBoard}>Reset board</button>
+                <button onClick={newGame}>New birds</button>
+                <button onClick={() => setSetUp(true)}>Back to start</button>
+            </div>
+        </div>
     )
 }
 
