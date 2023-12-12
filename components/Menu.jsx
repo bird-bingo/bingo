@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-const Menu = ({setSetUp, location, boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
+const Menu = ({setSetUp, setLocation, location, boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
 
     const resetBoard = () => {
 
@@ -31,8 +31,12 @@ const Menu = ({setSetUp, location, boardState, setBoardState, setSpeciesList, ad
                 setSpeciesList(res);
                 addBirdsToSquares(res);
       })
+    }
 
-
+    const backToStart = () => {
+        setSetUp(true);
+        resetBoard(); 
+        setLocation(''); // how can we get the location to persist? Right now, if you comment out this line, there is no new fetch call if/when you choose to play the same state 
     }
 
     return (
@@ -41,7 +45,7 @@ const Menu = ({setSetUp, location, boardState, setBoardState, setSpeciesList, ad
             <div className='menu'>
                 <button onClick={resetBoard}>Reset board</button>
                 <button onClick={newGame}>New birds</button>
-                <button onClick={() => setSetUp(true)}>Back to start</button>
+                <button onClick={backToStart}>Back to start</button>
             </div>
         </div>
     )

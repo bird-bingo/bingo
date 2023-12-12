@@ -53,7 +53,7 @@ return (
         : 
         <div>
           <div className="board"><Board boardState={boardState} setBoardState={setBoardState}/></div>
-          <Menu setSetUp={setSetUp} location={location} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
+          <Menu setSetUp={setSetUp} location={location} setLocation={setLocation} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
         </div>
       }      
     </div>
