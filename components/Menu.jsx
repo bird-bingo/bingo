@@ -36,7 +36,7 @@ const Menu = ({setSetUp, setLocation, location, boardState, setBoardState, setSp
     const backToStart = () => {
         setSetUp(true);
         resetBoard(); 
-        setLocation(''); // how can we get the location to persist? Right now, if you comment out this line, there is no new fetch call if/when you choose to play the same state 
+        // setLocation(''); // how can we get the location to persist? Right now, if you comment out this line, there is no new fetch call if/when you choose to play the same state 
     }
 
     return (

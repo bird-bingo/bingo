@@ -34,7 +34,8 @@ export default function App() {
 
   useEffect(() => {
 
-    fetch(`/getBirds?location=${location}`)
+    if (setUp === false) {
+      fetch(`/getBirds?location=${location}`)
       .then(res => res.json())
       .then(res => {
         setSpeciesList(res);
@@ -43,8 +44,9 @@ export default function App() {
         
       })
       .catch(err => console.log('App.componentDidMount frontend: get species data: ERROR: ', err));
+    }
   
-  }, [location]);
+  }, [setUp]); // we only need this to run when we are rendering the board, i.e. not when we are going back to the mainmenu page. thus the conditional. Is there a better way of doing this?  
 
 return (
     <div id="container">
