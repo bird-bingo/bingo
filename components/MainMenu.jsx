@@ -61,9 +61,8 @@ const MainMenu = ({setSetUp, location, setLocation, boardState, setBoardState, s
 
     const [range, setRange] = useState('range-by-state');
     const handleLocationChange = () => {
-        console.log('location', location);
-        if (range === 'range-by-state') setLocation(document.getElementById("location").value)
-        else setLocation('')
+        // if (range === 'range-by-state') setLocation(document.getElementById("location").value)
+        // else setLocation('') THIS IS NOW REDUNDANT
 
         setSetUp(false);
     }
