@@ -61,6 +61,7 @@ const MainMenu = ({setSetUp, location, setLocation, boardState, setBoardState, s
 
     const [range, setRange] = useState('range-by-state');
     const handleLocationChange = () => {
+        console.log('location', location);
         if (range === 'range-by-state') setLocation(document.getElementById("location").value)
         else setLocation('')
 
@@ -83,12 +84,15 @@ const MainMenu = ({setSetUp, location, setLocation, boardState, setBoardState, s
 
                 <div id="range-circle">
 
-                    <div onClick={(event) => {setRange(event.currentTarget.id); console.log(event)}} id="range-by-state" className={range === 'range-by-state' ? 'selected' : 'not-selected'}>
+                    <div onClick={(event) => {setRange(event.currentTarget.id)}} id="range-by-state" className={range === 'range-by-state' ? 'selected' : 'not-selected'}>
                         <div id="range-by-state-select">
                             <h4>Select your state</h4>
                             <select
                                 id="location"
-                                disabled={range === 'range-by-state' ? false : true}                                >
+                                disabled={range === 'range-by-state' ? false : true}
+                                value={location !== '' ? location : ''}
+                                onChange={(e) => setLocation(e.target.value)}
+                                >
                                     <option defaultValue="" hidden>State</option>
                                     {arrayOfStates}
                                     
