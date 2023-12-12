@@ -2,63 +2,64 @@ import React, { useState, useEffect }from 'react';
 import Menu from './Menu.jsx';
 
 const states = {
-    Alabama: 'US-AL',
-    Alaska: 'US-AK',
-    Arizona: 'US-AZ',
-    Arkansas: 'US-AR',
-    California: 'US-CA',
-    Colorado: 'US-CO',
-    Connecticut: 'US-CT',
-    Delaware: 'US-DE',
-    'District of Columbia': 'US-DC',
-    Florida: 'US-FL',
-    Georgia: 'US-GA',
-    Hawaii: 'US-HI',
-    Idaho: 'US-ID',
-    Illinois: 'US-IL',
-    Indiana: 'US-IN',
-    Iowa: 'US-IA',
-    Kansas: 'US-KS',
-    Kentucky: 'US-KY',
-    Louisiana: 'US-LA',
-    Maine: 'US-ME',
-    Maryland: 'US-MD',
-    Massachusetts: 'US-MA',
-    Michigan: 'US-MI',
-    Minnesota: 'US-MN',
-    Mississippi: 'US-MS',
-    Missouri: 'US-MO',
-    Montana: 'US-MT',
-    Nebraska: 'US-NE',
-    Nevada: 'US-NV',
-    'New Hampshire': 'US-NH',
-    'New Jersey': 'US-NJ',
-    'New Mexico': 'US-NM',
-    'New York': 'US-NY',
-    'North Carolina': 'US-NC',
-    'North Dakota': 'US-ND',
-    Ohio: 'US-OH',
-    Oklahoma: 'US-OK',
-    Oregon: 'US-OR',
-    Pennsylvania: 'US-PA',
-    'Rhode Island': 'US-RI',
-    'South Carolina': 'US-SC',
-    'South Dakota': 'US-SD',
-    Tennessee: 'US-TN',
-    Texas: 'US-TX',
-    Utah: 'US-UT',
-    Vermont: 'US-VT',
-    Virginia: 'US-VA',
-    Washington: 'US-WA',
-    'West Virginia': 'US-WV',
-    Wisconsin: 'US-WI',
-    Wyoming: 'US-WY',
+    AL: 'US-AL',
+    AK: 'US-AK',
+    AZ: 'US-AZ',
+    AR: 'US-AR',
+    CA: 'US-CA',
+    CO: 'US-CO',
+    CT: 'US-CT',
+    DE: 'US-DE',
+    DC: 'US-DC',
+    FL: 'US-FL',
+    GA: 'US-GA',
+    HI: 'US-HI',
+    ID: 'US-ID',
+    IL: 'US-IL',
+    IN: 'US-IN',
+    IA: 'US-IA',
+    KS: 'US-KS',
+    KY: 'US-KY',
+    LA: 'US-LA',
+    ME: 'US-ME',
+    MD: 'US-MD',
+    MA: 'US-MA',
+    MI: 'US-MI',
+    MN: 'US-MN',
+    MS: 'US-MS',
+    MO: 'US-MO',
+    MT: 'US-MT',
+    NE: 'US-NE',
+    NV: 'US-NV',
+    NH: 'US-NH',
+    NJ: 'US-NJ',
+    NM: 'US-NM',
+    NY: 'US-NY',
+    NC: 'US-NC',
+    ND: 'US-ND',
+    OH: 'US-OH',
+    OK: 'US-OK',
+    OR: 'US-OR',
+    PA: 'US-PA',
+    RI: 'US-RI',
+    SC: 'US-SC',
+    SD: 'US-SD',
+    TN: 'US-TN',
+    TX: 'US-TX',
+    UT: 'US-UT',
+    VT: 'US-VT',
+    VA: 'US-VA',
+    WA: 'US-WA',
+    WV: 'US-WV',
+    WI: 'US-WI',
+    WY: 'US-WY',
   };
 
 
 const MainMenu = ({setSetUp, location, setLocation, boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
 
 
+    const [range, setRange] = useState('range-by-state');
     const handleLocationChange = () => {
         if (range === 'range-by-state') setLocation(document.getElementById("location").value)
         else setLocation('')
@@ -70,14 +71,7 @@ const MainMenu = ({setSetUp, location, setLocation, boardState, setBoardState, s
 
     for (const state in states) {
         arrayOfStates.push(<option key={state} value={states[state]}>{state}</option>)
-    }
-
-    // const handleRangeChange = () => {
-    //     console.log(this)
-    // }
-
-    const [range, setRange] = useState('range-by-state');
-    
+    } 
 
 
     return (
