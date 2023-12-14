@@ -14,6 +14,9 @@ export default function App() {
   const [setUp, setSetUp] = useState(true);
 
   const addBirdsToSquares = (birdlist) => {
+    // remove animation
+    document.querySelectorAll('.animation').forEach((animation) => animation.remove());
+
     const inputField = document.querySelectorAll('.square > p')
 
     for (let i = 0; i < inputField.length; i++) {
@@ -23,13 +26,13 @@ export default function App() {
   }
 
   const addHoverToSquares = () => {
-    const style = document.createElement('style');
-    style.innerHTML = `
-    .square:hover {
-      background-color: #DC602E;
-    }
-    `;
-    document.head.appendChild(style);
+
+    const inputField = document.querySelectorAll('.square')
+
+    for (let i = 0; i < inputField.length; i++) {
+      let curr = inputField[i];
+      curr.classList.add("square-hov");
+    };
   }
 
   useEffect(() => {
@@ -39,9 +42,10 @@ export default function App() {
       .then(res => res.json())
       .then(res => {
         setSpeciesList(res);
-        addBirdsToSquares(res)
+        addBirdsToSquares(res);        
+      })
+      .then(() => {
         addHoverToSquares();
-        
       })
       .catch(err => console.log('App.componentDidMount frontend: get species data: ERROR: ', err));
     }

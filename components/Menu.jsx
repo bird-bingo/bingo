@@ -9,6 +9,8 @@ const Menu = ({setSetUp, setLocation, location, boardState, setBoardState, setSp
 
         setBoardState(Array(5).fill(0).map((v) => [v, v, v, v, v]));
         cleanWinner();
+        const confettiWrapper = document.querySelector('.wrapper')
+        confettiWrapper.style.visibility = "hidden";
 
     }
 

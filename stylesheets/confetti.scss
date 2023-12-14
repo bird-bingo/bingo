@@ -4,6 +4,7 @@
 
 // working on confetti
 .wrapper {
+  pointer-events: none;
   visibility: hidden;
   position: fixed;
   height: 100%;
@@ -21,7 +22,7 @@
 $colors: (#d13447, #ffbf00, #263672);
 
 @for $i from 0 through 150 {
-  $w: random(8);
+  $w: random(16);
   $l: random(100);
   .confetti-#{$i} {
     width: #{$w}px;

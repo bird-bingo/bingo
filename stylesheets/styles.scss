@@ -30,6 +30,10 @@ body {
     }
 }
 
+.square-hov:hover {
+  background-color: #bc412b;
+}
+
 .board {
   display: flex;
   flex-direction: column;
@@ -37,22 +41,14 @@ body {
 }
 
 .clicked {
+  background: #05a8aa;
+}
+
+.winner-square {
   background: 
-  // repeating-linear-gradient(
-  //   to right, transparent, 
-  //   transparent 50px, 
-  //   white 50px, 
-  //   white 55px
-  // ),
-  // repeating-linear-gradient(
-  //   to bottom, transparent,  
-  //   transparent 50px, 
-  //   white 50px, 
-  //   white 55px
-  // ),
-  linear-gradient(45deg, pink, skyblue);
+  linear-gradient(45deg, #05a8aa, #d7b49e);
   &:hover {
-    background-color: linear-gradient(75deg, pink, skyblue);;
+    background-color: linear-gradient(75deg, pink, skyblue);
   }
 }
 
