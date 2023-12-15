@@ -27,10 +27,10 @@ export default function App() {
 
   const addHoverToSquares = () => {
 
-    const inputField = document.querySelectorAll('.square')
+    const squares = document.querySelectorAll('.square')
 
-    for (let i = 0; i < inputField.length; i++) {
-      let curr = inputField[i];
+    for (let i = 0; i < squares.length; i++) {
+      let curr = squares[i];
       curr.classList.add("square-hov");
     };
   }
@@ -59,7 +59,7 @@ return (
         : 
         <div>
           <div className="board"><Board boardState={boardState} setBoardState={setBoardState}/></div>
-          <Menu setSetUp={setSetUp} location={location} setLocation={setLocation} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
+          <Menu addHoverToSquares={addHoverToSquares} setSetUp={setSetUp} location={location} setLocation={setLocation} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
         </div>
       }      
     </div>

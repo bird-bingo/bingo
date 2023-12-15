@@ -3,15 +3,24 @@ import React from 'react';
 
 
 
-const Menu = ({setSetUp, setLocation, location, boardState, setBoardState, setSpeciesList, addBirdsToSquares}) => {
+const Menu = ({setSetUp, setLocation, location, boardState, setBoardState, setSpeciesList, addBirdsToSquares, addHoverToSquares}) => {
 
     const resetBoard = () => {
 
         setBoardState(Array(5).fill(0).map((v) => [v, v, v, v, v]));
         cleanWinner();
+
+        // remove confetti
         const confettiWrapper = document.querySelector('.wrapper')
         confettiWrapper.style.visibility = "hidden";
 
+        // reset winning squares
+        const squares = document.querySelectorAll('.square');
+        squares.forEach(el => {
+            el.style.background = '';
+        })
+
+        addHoverToSquares()
     }
 
     const cleanWinner = () => {

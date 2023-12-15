@@ -1,5 +1,5 @@
 import React from 'react';
-import { SpinningCircles } from 'react-loading-icons'
+import LoadingIcons from 'react-loading-icons'
 
 
 
@@ -46,7 +46,7 @@ const Square = ({row, col, boardState, setBoardState}) => {
       for (let i = 4; i <= 20; i += 4) {
         console.log('formatting cell: ', i)
         let currSquare = allCells[i];
-        currSquare.style.border = '10px solid black';
+        currSquare.style.background = 'linear-gradient(45deg, #05a8aa, #d7b49e)';
       }
     }
     // show confetti for a duration
@@ -84,8 +84,8 @@ const Square = ({row, col, boardState, setBoardState}) => {
   }
 
     return (
-    <div key={"key" + row + col} className={boardState[row][col] ? "square clicked" : "square"} onClick={() => onClickHelper(row, col)}>
-      <SpinningCircles className="animation"/>
+    <div key={"key" + row + col} className={boardState[row][col] ? "square clicked" : "square square-hov"} onClick={() => onClickHelper(row, col)}>
+      <LoadingIcons.SpinningCircles className="animation"/>
       <p></p> 
     </div>
     )
