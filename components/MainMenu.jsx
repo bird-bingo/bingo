@@ -1,5 +1,6 @@
 import React, { useState, useEffect }from 'react';
 import Menu from './Menu.jsx';
+import SignIn from './SignIn.jsx';
 
 const states = {
     AL: 'US-AL',
@@ -76,10 +77,12 @@ const MainMenu = ({setSetUp, location, setLocation, boardState, setBoardState, s
 
     return (
         <div>
-            <h2>Game Play</h2>
+            <h1>Welcome to Bird Bingo!</h1>
+            {/* <h2>Game Play</h2> */}
+            <SignIn />
 
             <div className="menu-box">
-                <h3>Range</h3>
+                <h3>choose your state</h3>
 
                 <div id="range-circle">
 

@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
-const PORT = 3000; 
+const PORT = 3000;
 const mongoose = require('mongoose');
+const userController = require('./server/controllers/userController');
 
 const Schema = mongoose.Schema;
 
@@ -29,5 +30,9 @@ app.get('/', (req, res) => {
 app.get('/getBirds', birdController.getBirds, (req, res, next) => {
   return res.status(200).json(res.locals.birdList);
 });
+
+app.post('/createUser', userController.createUser, (req, res, next) => {
+  return res.status(200).json(res.locals.createdUser);
+})
 
 app.listen(PORT, () => console.log('listening on 3000')); //listens on port 3000 -> http:/localhost:3000/

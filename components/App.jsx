@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Board from './Board.jsx';
 import Menu from './Menu.jsx';
 import MainMenu from './MainMenu.jsx';
+import SignIn from './SignIn.jsx'
 
 
 export default function App() {
@@ -55,7 +56,9 @@ export default function App() {
 return (
     <div id="container">
       {setUp ? 
-        <MainMenu setSetUp={setSetUp} location={location} setLocation={setLocation} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
+        <>
+          <MainMenu setSetUp={setSetUp} location={location} setLocation={setLocation} boardState={boardState} setBoardState={setBoardState} setSpeciesList={setSpeciesList} addBirdsToSquares={addBirdsToSquares}/>
+        </>
         : 
         <div>
           <div className="board"><Board boardState={boardState} setBoardState={setBoardState}/></div>
