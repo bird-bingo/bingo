@@ -3,12 +3,14 @@ const path = require('path');
 const PORT = 3000;
 const mongoose = require('mongoose');
 const userController = require('./server/controllers/userController');
+require('dotenv').config();
+
 
 const Schema = mongoose.Schema;
 
-const MONGO_URI = 'mongodb+srv://garrettallen13:6ADki4W5zZ0SCXIE@birdbingo.rcabwnx.mongodb.net/?retryWrites=true&w=majority';
+const MongoDB_URI = process.env.MongoDB_URI;
 
-mongoose.connect(MONGO_URI, {
+mongoose.connect(MongoDB_URI, {
     dbName: 'birdBingo' 
 });
 
